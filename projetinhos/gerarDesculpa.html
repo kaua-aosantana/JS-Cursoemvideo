@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Desculpas</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main{
+            width: 800px;
+            text-align: center;
+            background-color: rgb(176, 225, 255);
+            padding: 1em 0 0;
+            border-radius: .5em;
+            overflow: hidden;
+        }
+        button{
+            background-color: yellow;
+            padding: 1em;
+            border: none;
+            border-radius: .5em;
+            margin: 1em 0;
+            cursor: pointer;
+        }
+        button:hover{
+            transform: scale(1.05);
+        }
+        #painel{
+            display: flex;
+            flex-direction: column-reverse;
+            background-color: rgb(6, 35, 100);
+            color: rgba(255, 255, 255, 0.4);
+        }
+        #painel p{
+            padding: .5em;
+            border-bottom: 1px solid white;
+            animation: aparecer 0.4s ease;
+        }
+        #painel p:last-child{
+            background-color: rgb(10, 28, 83);
+            color: white;
+            font-size: 2em;
+        }
+        @keyframes aparecer{
+            from{
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Gere uma desculpa</h1>
+        <button type="button" onclick="geraDesculpa()">Clique em mim para gerar uma desculpa aleatoria</button>
+        <button type="button" onclick="copiar()">📋</button>
+        <div id="painel"></div>
+    </main>
+    <script>
+        const pessoas = [
+            "Meu cachorro",
+            "Um alien",
+            "Meu computador",
+            "Minha avó",
+            "Um hacker"
+        ];
+        const acoes = [
+            "hackeou",
+            "destruiu",
+            "apagou",
+            "escondeu",
+            "explodiu"
+        ];
+        const objetos = [
+            "meu wi-fi",
+            "meu trabalho",
+            "meu celular",
+            "meu despertador",
+            "meu carro"
+        ];
+        const painel = document.getElementById("painel");
+        let ultimaFrase = "";
+        function geraDesculpa(){
+            let pessoa = pessoas[Math.floor(Math.random() * pessoas.length)];
+            let acao = acoes[Math.floor(Math.random() * acoes.length)];
+            let objeto = objetos[Math.floor(Math.random() * objetos.length)];
+
+            let frase = document.createElement("p");
+            ultimaFrase = `${pessoa} ${acao} ${objeto}`;
+
+            frase.textContent = ultimaFrase;
+            painel.appendChild(frase);
+
+            // Verificacao do tamanho da lista
+            let frases = document.querySelectorAll("#painel p");
+
+            if (frases.length > 10){
+                document.querySelector("#painel p:first-child").remove();
+            }
+        }
+        function copiar(){
+            navigator.clipboard.writeText(ultimaFrase);
+            alert("Mensagem copiada!");
+        }
+    </script>
+</body>
+</html>

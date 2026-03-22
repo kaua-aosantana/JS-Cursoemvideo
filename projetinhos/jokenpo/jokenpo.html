@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="estilo.css">
+    <title>Jokenpo!</title>
+</head>
+<body>
+    <div id="mascara">
+        <div id="mensagem">
+            <p id="resultado">Voce venceu!</p>
+            <button onclick="resetar()">Voltar</button>
+        </div>
+    </div>
+    <img src="mascote.png" alt="mascote">
+    <main>
+        <section class="texto">
+            <h1>Pedra, Papel e Tesoura!</h1>
+            <p>Escolha uma das opções abaixo e veja se ganhou, perdeu ou empatou!</p>
+        </section>
+        <section class="pc">
+            <output id="escolha-pc"></output>
+        </section>
+        <section class="controles">
+            <div class="botao"><input type="radio" name="escolha-jogador" id="ipedra"><label for="ipedra">✊</label></div>
+            <div class="botao"><input type="radio" name="escolha-jogador" id="ipapel"><label for="ipapel">✋</label></div>
+            <div class="botao"><input type="radio" name="escolha-jogador" id="itesoura"><label for="itesoura">✌️</label></div>
+        </section>
+        <section class="pontuacao">
+            <p>Jogador: <span id="pontos-jogador"></span></p>
+            <p>Computador: <span id="pontos-computador"></span></p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
