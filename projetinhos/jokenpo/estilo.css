@@ -122,3 +122,26 @@ main{
 #mascara.aparece{
     display: block;
 }
+
+@media screen and (max-width: 768px){
+    body{
+        justify-content: flex-end;
+        padding: 1em;
+    }
+    .controles{
+        flex-direction: column;
+        gap: 1em;
+    }
+    .botao{
+        width: 100%;
+    }
+    #escolha-pc{
+        transform: translate(-50%, 0);
+        border-radius: .6em;
+        height: 80px;
+        width: 80vw;
+        bottom: anchor(top);
+        left: anchor(center);
+        margin-bottom: 1em;
+    }
+}
